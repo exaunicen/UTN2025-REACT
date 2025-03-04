@@ -1,0 +1,40 @@
+.encabezado {
+    background-color: var(--color-grisoscuro);
+    padding: 3rem 0 1rem;
+}
+.contenido-encabezado {
+    position: relative;
+    top: 30rem;
+    text-align: left;
+    color: var(--color-blanco);
+    font-weight: 700;
+    line-height: 2;
+    max-width: 60rem;
+}
+.inicio {
+    display: flex;
+    flex: column;
+    min-height: 70rem;
+    background-image: url(../../../assets/img/header.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .contenido-encabezado {
+        top: 15rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480) {
+    .contenido-encabezado {
+        top: 10rem;
+    }
+}

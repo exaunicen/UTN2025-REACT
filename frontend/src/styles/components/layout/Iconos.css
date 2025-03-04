@@ -1,0 +1,23 @@
+.iconos-nosotros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+.icono {
+    text-align: center;
+}
+.icono img {
+    height: 10rem;
+}
+.icono h3 {
+    text-transform: uppercase;
+}
+
+/* Medias Queries */
+@media (max-width: 768px) {
+    .iconos-nosotros {
+        flex-direction: column;
+    }
+}

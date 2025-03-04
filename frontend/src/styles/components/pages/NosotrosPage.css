@@ -1,0 +1,27 @@
+.contenido-nosotros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+.texto-nosotros {
+    width: 50%;
+}
+.texto-nosotros blockquote {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin: 0;
+    padding: 1rem 0 3rem 0;
+}
+
+/* Medias Queries */
+@media (max-width: 768px) {
+    .contenido-nosotros {
+        flex-direction: column;
+    }
+    .texto-nosotros {
+        width: 100%;
+        text-align: center;
+    }
+}

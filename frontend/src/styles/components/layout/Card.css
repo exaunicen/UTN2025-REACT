@@ -1,0 +1,21 @@
+.boton {
+  width: auto;
+  color: var(--color-blanco);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+.boton-amarillo {
+  background-color: var(--color-amarillo);
+}
+.boton-amarillo:hover {
+  background-color: darkgoldenrod;
+}
+.boton-verde {
+  background-color: var(--color-verde);
+}
+.boton-verde:hover {
+  background-color: darkgreen;
+}

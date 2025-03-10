@@ -1,0 +1,27 @@
+<div class="container bg-primary mt-5 rounded shadow">
+    <div class="row align-items-stretch">
+        <div class="col bg_fondo d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+
+        </div>
+        <div class="col bg-white p-5 rounded-end">
+            <div class="text-center bg-black w-100">
+                <img src="/images/logo.svg"  alt="Logo Bienes Raices">
+            </div>
+            <h2 class="fw-bold text-center py-5">Bienvenidos</h2>
+            <p class="text-center fw-bold fs-2">Ingresa tus credenciales para acceder al area de administracion</p>
+            <form action="/login" method="post">
+                <div class="mb-5">
+                    <label for="email" class=" form-label fw-bold fs-2 sr-only">Correo Electronico</label>
+                    <input type="email" class="form-control fs-2 text-secondary" name="email" placeholder="Ingrese su correo">
+                </div>
+                <div class="mb-5 size_form">
+                     <label for="pass" class="form-label fw-bold fs-2 sr-only">Contraseña</label>
+                    <input type="password" class="form-control fs-2 text-secondary" name="pass" placeholder="Ingrese su contraseña">
+                </div>
+                <div class="d-grid mb-5 py-5">
+                    <button type="submit" class="btn btn-primary text-bold fs-2">Iniciar sesion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

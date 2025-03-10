@@ -1,10 +1,10 @@
 .contactos {
-    background-color: var(--color-blanco);
+    background: linear-gradient(to right, #bbd5f6, #dfdfdf);
     display: flex;
     gap: 5rem;
 }
 .contacto {
-    width: 50%;
+    width: 60%;
 }
 .formulario p {
     display: flex;
@@ -25,7 +25,7 @@
     border: 0.1rem solid #999;
     padding: 0.6rem 1rem;
     font-size: 1.4rem;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
 }
 .formulario textarea {
     resize: none;

@@ -26,7 +26,7 @@ app.set("view engine", "hbs");
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -52,7 +52,7 @@ app.use("/", blogRouter);
 //Practicas de sesiones
 
 app.get("/login", function (req, res) {
-  const conocido = req.session.email;
+  const conocido = Boolean(req.session.email);
 
   res.render("index", {
     title: "Sesiones en Express.js",

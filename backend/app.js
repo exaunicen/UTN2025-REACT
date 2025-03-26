@@ -1,17 +1,21 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+
+//CONEXION A LA BASE DE DATOS
+require("dotenv").config();
+const pool = require("./models/bd");
 
 //Declaracion de Session
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
-var app = express();
+const app = express();
 
 //Declaracion de variable de contraladores
 const nosotrosRouter = require("./routes/nosotrosPage");
@@ -85,6 +89,48 @@ app.get("/nosotros", function (req, res) {
 app.get("/blog", function (req, res) {
   res.send("Pagina de Blog BIENES RAICES");
 });
+
+//Practica de conexion a Base de Datos
+//Select
+
+pool
+  .query("SELECT * FROM empleados WHERE trabajo='Full Stack Developer'")
+  .then(function (resultados) {
+    console.log(resultados);
+  });
+
+//Insert
+
+//const obj = {
+//  nombre: "Jorge",
+// apellido: "Albarinio",
+//  trabajo: "Full Stack Developer",
+//  edad: 59,
+// salario: 90000,
+// mail: "exaunicen@gmail.com",
+//};
+
+//pool.query("INSERT INTO empleados SET ?", [obj]).then(function (resultados) {
+// console.log(resultados);
+//});
+
+//Update
+//const id = 50;
+//const obj2 = {
+// salario: 100000,
+//};
+//pool
+// .query("UPDATE empleados SET ? WHERE id_emp = ?", [obj2, id])
+// .then(function (resultados) {
+//  console.log(resultados);
+// });
+
+//Delete
+//pool
+//.query("DELETE FROM empleados WHERE id_emp BETWEEN 45 AND 50")
+//.then(function (resultados) {
+// console.log(resultados);
+//});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

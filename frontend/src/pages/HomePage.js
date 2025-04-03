@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import Blogs from "../components/layout/Blogs";
 import HeaderApp from "../components/layout/HeaderApp";
 import Iconos from "../components/layout/Iconos";
 import Cards from "../components/layout/Cards";
 import Footer from "../components/layout/Footer";
-import blogTerraza from "../assets/img/blogTerraza.jpg";
+/*import blogTerraza from "../assets/img/blogTerraza.jpg";*/
 import blogBordePileta from "../assets/img/blogBordePileta.jpg";
 
 import "../styles/components/pages/HomePage.css";
@@ -46,23 +47,6 @@ const HomePage = () => {
           <h2>Nuestro Blog</h2>
           <article className="entrada-blog">
             <div className="imagen borde">
-              <img src={blogTerraza} alt="Texto Entrada Blog" />
-            </div>
-            <div className="texto-entrada">
-              <Link to="/blog">
-                <h4>Terraza en el techo de tu casa</h4>
-              </Link>
-              <p className="info-meta">
-                Escrito el: <span> 03/03/2025 </span> por <span> Admin </span>
-              </p>
-              <p>
-                Consejos para construir una terraza en el techo de tu casa con
-                los mejores materiales y ahorrando dinero
-              </p>
-            </div>
-          </article>
-          <article className="entrada-blog">
-            <div className="imagen borde">
               <img src={blogBordePileta} alt="Texto Entrada Blog" />
             </div>
             <div className="texto-entrada">
@@ -77,8 +61,9 @@ const HomePage = () => {
                 combinar muebles y colores para darle vida a tu espacio
               </p>
             </div>
-          </article>
+          </article>{" "}
         </section>
+
         <section className="testimoniales">
           <h2>Testimoniales</h2>
           <div className="testimonial">

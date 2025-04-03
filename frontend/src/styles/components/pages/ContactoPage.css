@@ -6,44 +6,61 @@
 .contacto {
     width: 60%;
 }
+
+legend {
+    font-size: 2rem;
+    color: var(--grisoscuro);
+}
+
 .formulario p {
-    display: flex;
-    flex-direction: column;
-    &:nth-child(4) {
-        align-items: start;
-    }
+    font-size: 1.6rem;
+    color: var(--grisoscuro);
+    margin: 2rem 0 0 0;
 }
-.formulario p label {
-    min-width: 8rem;
-    display: flex;
+label {
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
 }
-.formulario p input,
-.formulario p textarea {
+input:not([type="submit"]),
+textarea,
+select {
     width: 100%;
-    background-color: var(--color-blanco);
+    padding: 1rem;
+    display: block;
+    border: 0.1rem solid var(--grisoscuro);
     border-radius: 0.5rem;
-    border: 0.1rem solid #999;
-    padding: 0.6rem 1rem;
-    font-size: 1.4rem;
-    margin: 1rem 0;
+    margin-bottom: 2rem;
 }
-.formulario textarea {
+textarea {
+    height: 15rem;
     resize: none;
-    height: 20rem;
 }
-.formulario input[type="submit"] {
-    width: 30%;
+input[type="submit"] {
+    width: 15rem;
     background-color: var(--color-verde);
     color: var(--color-blanco);
     font-weight: 700;
     text-decoration: none;
     text-align: center;
     padding: 1rem 3rem;
+    border: none;
     border-radius: 0.5rem;
+    margin-bottom: 1rem;
     cursor: pointer;
 }
 .formulario input[type="submit"]:hover {
     background-color: darkgreen;
+}
+.forma-contacto {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.forma-contacto input {
+    margin: 0;
+    width: auto;
 }
 .datos p {
     font-size: 1.6rem;
@@ -58,6 +75,9 @@
     i {
         margin: 1rem;
     }
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 /* Medias Query */
@@ -69,13 +89,16 @@
     .contacto {
         width: 100%;
     }
+    input[type="submit"] {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
     .img-contacto {
         max-height: 25rem;
     }
-    .formulario input[type="submit"] {
-        width: auto;
+    input[type="submit"] {
+        width: 100%;
     }
 }

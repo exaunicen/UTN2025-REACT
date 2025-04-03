@@ -11,52 +11,88 @@ import {
 
 import "../styles/components/pages/ContactoPage.css";
 
-const ContactoPage = (props) => {
+const ContactoPage2 = (props) => {
   return (
     <>
       <FontAwesomeIcon />
       <HeaderPage />
-      <main class="contenedor seccion">
+      <main className="contenedor seccion">
         <h2>Contacto</h2>
         <img
           className="img-contacto"
           src={terrazaDiseño}
           alt="Imagen de portada contacto"
         />
+
+        <h3>Completa el formulario de contacto</h3>
         <div className="contactos">
           <div className="contacto">
             <form className="formulario">
-              <p>
+              <fieldset>
+                <legend>Informacion Personal</legend>
                 <label for="nombre">Nombre</label>
+                <input type="text" placeholder="Tu nombre" id="nombre" />
+                <label for="email">E-mail</label>
                 <input
-                  type="text"
-                  name="nombre"
-                  placeholder="Nombre y Apellido"
+                  type="email"
+                  placeholder="Correo@correo.com"
+                  id="email"
                 />
-              </p>
-              <p>
-                <label for="email">Email</label>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Name@tucorreo.com"
-                />
-              </p>
-              <p>
                 <label for="telefono">Telefono</label>
                 <input
-                  type="text"
-                  name="telefono"
+                  type="tel"
                   placeholder="+54 9 223 5131672"
+                  id="telefono"
                 />
-              </p>
-              <p>
                 <label for="mensaje">Mensaje</label>
-                <textarea name="mensaje" id="mensaje"></textarea>
-              </p>
-              <p>
-                <input type="submit" value="Enviar" />
-              </p>
+                <textarea
+                  id="mensaje"
+                  placeholder="Escribe tu mensaje"></textarea>
+              </fieldset>
+              <fieldset>
+                <legend>
+                  Informacion sobre la propiedad que desea consultar
+                </legend>
+                <label for="opciones">Vende o Compra</label>
+                <select id="opciones">
+                  <option value="" disabled selected>
+                    -- Seleccione --
+                  </option>
+                  <option value="compra">Compra</option>
+                  <option value="venta">Venta</option>
+                </select>
+                <label for="presupuesto">Precio o Presupuesto</label>
+                <input
+                  type="number"
+                  placeholder="Tu precio o Presupuesto"
+                  id="presupuesto"
+                />
+              </fieldset>
+
+              <fieldset>
+                <legend>Formas de Contacto</legend>
+                <p>Como desea ser contactado?</p>
+                <div className="forma-contacto">
+                  <label for="contacto-telefono">Telefono</label>
+                  <input
+                    name="contacto"
+                    type="radio"
+                    value="telefono"
+                    id="contacto-telefono"
+                  />
+                  <label for="contacto-mail">E-mail</label>
+                  <input
+                    name="contacto"
+                    type="radio"
+                    value="email"
+                    id="contacto-mail"
+                  />
+                </div>
+              </fieldset>
+              <input
+                type="submit"
+                value="enviar"
+                className="boton-verde"></input>
             </form>
           </div>
           <div className="datos">
@@ -66,7 +102,7 @@ const ContactoPage = (props) => {
               medios
             </p>
             <ul>
-              <li>Telefono : +54 9 223 5131672</li>
+              <li>whatsapp : +54 9 223 5131672</li>
               <li>Email : contacto@bienesraices.com.ar</li>
               <li>
                 <div className="redes">
@@ -89,4 +125,4 @@ const ContactoPage = (props) => {
     </>
   );
 };
-export default ContactoPage;
+export default ContactoPage2;

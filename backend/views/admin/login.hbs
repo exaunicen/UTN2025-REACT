@@ -9,19 +9,25 @@
             </div>
             <h2 class="fw-bold text-center py-5">Bienvenidos</h2>
             <p class="text-center fw-bold fs-2">Ingresa tus credenciales para acceder al area de administracion</p>
-            <form action="/login" method="post">
+            <form action="/admin/login" method="post">
                 <div class="mb-5">
-                    <label for="email" class=" form-label fw-bold fs-2 sr-only">Correo Electronico</label>
-                    <input type="email" class="form-control fs-2 text-secondary" name="email" placeholder="Ingrese su correo">
+                    <label for="usuario" class=" form-label fw-bold fs-2 sr-only">Correo Electronico</label>
+                    <input type="email" class="form-control fs-2 text-secondary" name="usuario" placeholder="Ingrese su correo">
                 </div>
                 <div class="mb-5 size_form">
-                     <label for="pass" class="form-label fw-bold fs-2 sr-only">Contraseña</label>
-                    <input type="password" class="form-control fs-2 text-secondary" name="pass" placeholder="Ingrese su contraseña">
+                     <label for="password" class="form-label fw-bold fs-2 sr-only">Contraseña</label>
+                    <input type="password" class="form-control fs-2 text-secondary" name="password" placeholder="Ingrese su contraseña">
                 </div>
                 <div class="d-grid mb-5 py-5">
                     <button type="submit" class="btn btn-primary text-bold fs-2">Iniciar sesion</button>
                 </div>
             </form>
+            {{#if error}}
+                <p class="alert alert-danger text-center" role="alert">
+                    
+                    {{message}}
+                </>
+            {{/if}}
         </div>
     </div>
 </div>

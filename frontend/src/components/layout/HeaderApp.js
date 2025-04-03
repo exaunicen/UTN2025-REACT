@@ -14,7 +14,7 @@ const HeaderApp = (props) => {
             <NavBar />
           </div>
           <h1 className="contenido-encabezado">
-            Ventas y Alquileres de Casas, Cabañas y Campos
+            Ventas de Casas y Departamentos Exclusivos de Lujo
           </h1>
         </div>
       </header>

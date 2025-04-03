@@ -1,0 +1,22 @@
+.entrada-blog {
+    margin: 5rem 0;
+    display: flex;
+    gap: 2rem;
+}
+.texto-entrada a {
+    color: var(--color-negro);
+    text-decoration: none;
+    display: block;
+    margin-top: 0;
+}
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+.imagen img {
+    width: 30rem;
+    border-radius: 0.5rem;
+}
+.info-meta span {
+    color: var(--color-amarillo);
+}

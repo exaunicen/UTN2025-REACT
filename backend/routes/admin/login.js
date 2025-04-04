@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const usuarioModel = require("./../../models/usuariosModel");
+const usuariosModel = require("../../models/usuariosModel");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -19,12 +19,11 @@ router.post("/", async (req, res, next) => {
     const usuario = req.body.usuario;
     const password = req.body.password;
 
-    const data = await usuarioModel.getUsuario(usuario, password);
+    const data = await usuariosModel.getUsuario(usuario, password);
 
     if (data != undefined) {
-      req.session.id_usuario = data.id;
+      req.session.id_usuario = data.userId;
       req.session.email = data.usuario;
-
       res.redirect("/blog");
     } else {
       res.render("admin/login", {

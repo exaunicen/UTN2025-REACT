@@ -1,0 +1,43 @@
+<div class="contenedor seccion">
+  <h1 class="text-center text-uppercase">Ingreso de Usuarios</h1>
+  <a href="/usuarios/usuariosPage" class="boton boton-verde">Volver</a>
+  <form
+    class="formulario"
+    action="/usuarios/usuariosPage/modificarUsuarios"
+    method="post"
+  >
+    <fieldset>
+      <legend>Informacion General</legend>
+      <input type="hidden" value="{{usuarios.userId}}" name="id" />
+      <label for="usuario">Nombre de usuario :</label>
+      <input
+        type="text"
+        id="usuario"
+        name="usuario"
+        value="{{usuarios.usuario}}"
+      />
+      <label for="password">Contraseña :</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value="{{usuarios.password}}"
+      />
+
+    </fieldset>
+
+    <input
+      type="submit"
+      value="Modificar Usuario"
+      class="boton boton-verde w-auto"
+    />
+
+  </form>
+  {{#if error}}
+    <p class="alert alert-danger text-center" role="alert">
+
+      {{message}}
+    </p>
+  {{/if}}
+
+</div>

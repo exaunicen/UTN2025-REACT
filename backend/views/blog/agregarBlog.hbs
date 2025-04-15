@@ -1,0 +1,54 @@
+<div class="contenedor seccion">
+  <h1 class="text-center text-uppercase">Generacion de Blog</h1>
+  <a href="/blog/blogPage" class="boton boton-verde">Volver</a>
+  <form class="formulario" action="/blog/blogPage/agregarBlog" method="post">
+    <fieldset>
+      <legend>Informacion General</legend>
+      <label for="titulo">Titulo :</label>
+      <input
+        type="text"
+        id="titulo"
+        name="titulo"
+        placeholder="Titulo de la propiedad"
+      />
+      <label for="subtitulo">Subtitulo :</label>
+      <input
+        type="text"
+        id="subtitulo"
+        name="subtitulo"
+        placeholder="Subtitulo de la propiedad"
+      />
+      <label for="imagen">Imagen :</label>
+      <input
+        type="file"
+        id="imagen"
+        name="imagen"
+        accept="image/jpeg, image/png, image/jpg"
+      />
+
+    </fieldset>
+    <fieldset>
+      <legend>Detalles de autor</legend>
+      <label for="autor">Nombre del autor :</label>
+      <input
+        type="text"
+        id="autor"
+        name="autor"
+        placeholder="Nombre del autor"
+      />
+    </fieldset>
+    <input
+      type="submit"
+      value="Agregar Blog"
+      class="boton boton-verde w-auto"
+    />
+
+  </form>
+  {{#if error}}
+    <p class="alert alert-danger text-center" role="alert">
+
+      {{message}}
+    </p>
+  {{/if}}
+
+</div>

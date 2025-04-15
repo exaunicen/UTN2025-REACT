@@ -6,10 +6,14 @@
   --color-gris: #e1e1e1;
   --color-grisoscuro: #333333;
   --color-violeta: indigo;
+  --color-fondo: #bbd5f6;
+  --color-degrade: #dfdfdf;
 }
 
 html {
   font-size: 10px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 *,
@@ -19,32 +23,192 @@ html {
 }
 
 body {
-  background: #bbd5f6;
-  background: linear-gradient(to right, #bbd5f6, #dfdfdf);
-  min-height: 100svh;
+  background: var(--color-fondo);
+  background: linear-gradient(to right, var(--color-fondo), var(--color-degrade));
+  min-height: 100dvh;
   font-family: "Lato", sans-serif;
   font-size: 1.6rem;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   line-height: 1.8;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
-h2 {
-  color: var(--color-negro);
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.contenedor {
+  width: 95%;
+  max-width: 120rem;
+  margin: auto;
+}
+.seccion {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.encabezado {
+  background-color: var(--color-grisoscuro);
+  padding: 2rem 0 1rem;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.navegacion a {
+  color: var(--color-blanco);
+  font-size: 2.2rem;
+  text-decoration: none;
+  margin-right: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+.navegacion a:hover {
+  color: var(--color-amarillo);
+}
+.pie {
+  background-color: var(--color-grisoscuro);
+  color: var(--color-blanco);
+  text-align: center;
+  margin-bottom: 0;
+  padding: 1rem 0;
+}
+
+.contenido-pie {
+  padding-top: 2rem;
+}
+
+.navegacion a:focus {
+  width: auto;
+  border-radius: 0.5rem;
+  background-color: var(--color-verde);
+  padding: 0.5rem;
+}
+.bi-pencil-square,
+.bi-trash,
+.bi-plus,
+.bi-box-arrow-right {
+  font-size: 1.8rem;
+}
+.boton {
+  width: auto;
+  color: var(--color-blanco);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  margin: 3rem;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.boton-verde {
+  background-color: var(--color-verde);
+  margin-top: 2rem;
+}
+.boton-verde:hover {
+  background-color: darkgreen;
+}
+.boton-amarillo {
+  background-color: var(--color-amarillo);
+}
+.boton-amarillo:hover {
+  background-color: darkgoldenrod;
+}
+
+.activo {
+  width: auto;
+  border-radius: 0.5rem;
+  background-color: var(--color-verde);
+  padding: 0.5rem;
+}
+
+legend {
+  font-size: 2rem;
+  color: var(--grisoscuro);
+}
+
+.formulario p {
+  font-size: 1.6rem;
+  color: var(--grisoscuro);
+}
+fieldset {
+  border: 1px solid var(--color-violeta);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+label {
+  font-weight: bold;
   text-transform: uppercase;
-  font-size: 3.5rem;
+  display: block;
 }
-.sr-only {
-  position: absolute;
-  left: -1000rem;
-  top: auto;
-  width: 0.1rem;
-  height: 0.1rem;
-  overflow: hidden;
+input:not([type="submit"]),
+textarea,
+select {
+  width: 100%;
+  padding: 1rem;
+  display: block;
+  border: 0.1rem solid var(--grisoscuro);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }
-.bg_fondo {
-  background-image: url(/images/header.jpg);
-  background-position: center center;
-  background-size: cover;
+textarea {
+  height: 15rem;
+  resize: none;
+}
+input[type="submit"] {
+  width: 15rem;
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.formulario input[type="submit"]:hover {
+  background-color: darkgreen;
+}
+
+@media (max-width: 900px) {
+  .barra {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 800px) {
+  table tr {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-grisoscuro);
+    padding: 1rem;
+  }
+  table {
+    width: 100%;
+  }
+  table thead {
+    display: none;
+  }
+  table td[data-titulo] {
+    display: flex;
+  }
+  table td[data-titulo]:before {
+    content: attr(data-titulo);
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .navegacion a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

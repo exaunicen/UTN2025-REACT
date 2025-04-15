@@ -1,0 +1,69 @@
+:root {
+  --color-negro: #000000;
+  --color-amarillo: #e08709;
+  --color-verde: #71b100;
+  --color-blanco: #ffffff;
+  --color-gris: #e1e1e1;
+  --color-grisoscuro: #333333;
+  --color-violeta: indigo;
+  --color-fondo: #bbd5f6;
+  --color-degrade: #dfdfdf;
+}
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: var(--color-fondo);
+  background: linear-gradient(to right, var(--color-fondo), var(--color-degrade));
+  min-height: 100svh;
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+}
+h2 {
+  color: var(--color-negro);
+  text-transform: uppercase;
+  font-size: 3.5rem;
+}
+
+.bg_fondo {
+  background-image: url(/images/header.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.boton {
+  width: auto;
+  color: var(--color-blanco);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  margin: 3rem;
+  padding: 1rem 3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.boton-verde {
+  background-color: var(--color-verde);
+  margin-top: 2rem;
+}
+.boton-verde:hover {
+  background-color: darkgreen;
+}
+.boton-amarillo {
+  background-color: var(--color-amarillo);
+}
+.boton-amarillo:hover {
+  background-color: darkgoldenrod;
+}

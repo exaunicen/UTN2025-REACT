@@ -12,14 +12,16 @@ const pool = require("./models/bd");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-
 const app = express();
 
 //Declaracion de variable de contraladores
-const blogRouter = require("./routes/blogPage");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/usuarios/usuariosPage");
+const blogRouter = require("./routes/blog/blogPage");
 const loginRouter = require("./routes/admin/login");
+const adminRouter = require("./routes/admin/admin");
+const propiedadesRouter = require("./routes/propiedades/propiedadesPage");
+const vendedoresRouter = require("./routes/vendedores/vendedoresPage");
 const { title } = require("process");
 
 // view engine setup
@@ -55,15 +57,12 @@ secured = async (req, res, next) => {
 };
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/admin/login", loginRouter);
-app.use("/", [secured], blogRouter);
-
-//Rutas para el CRUD de Blog
-app.get("/salir", function (req, res) {
-  req.session.destroy();
-  res.redirect("/");
-});
+app.use("/admin/admin", [secured], adminRouter);
+app.use("/blog/blogPage", [secured], blogRouter);
+app.use("/propiedades/propiedadesPage", [secured], propiedadesRouter);
+app.use("/usuarios/usuariosPage", [secured], usersRouter);
+app.use("/vendedores/vendedoresPage", [secured], vendedoresRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

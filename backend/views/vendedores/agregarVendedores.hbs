@@ -1,0 +1,58 @@
+<div class="contenedor seccion">
+  <h1 class="text-center text-uppercase">Ingreso de Vendedores</h1>
+  <a href="/vendedores/vendedoresPage" class="boton boton-verde">Volver</a>
+  <form
+    class="formulario"
+    action="/vendedores/vendedoresPage/agregarVendedores"
+    method="post"
+  >
+    <fieldset>
+      <legend>Informacion General</legend>
+      <label for="nombre">Nombre :</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Nombre del vendedor"
+      />
+      <label for="apellido">Apellido :</label>
+      <input
+        type="text"
+        id="apellido"
+        name="apellido"
+        placeholder="Apellido del vendedor"
+      />
+
+    </fieldset>
+    <fieldset>
+      <legend>Detalles de vendedores</legend>
+      <label for="cell">Telefono :</label>
+      <input
+        type="text"
+        id="cell"
+        name="cell"
+        placeholder="Numero de telefono"
+      />
+      <label for="email">Email :</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Direccion de correo e-mail"
+      />
+    </fieldset>
+    <input
+      type="submit"
+      value="Ingresar Vendedor"
+      class="boton boton-verde w-auto"
+    />
+
+  </form>
+  {{#if error}}
+    <p class="alert alert-danger text-center" role="alert">
+
+      {{message}}
+    </p>
+  {{/if}}
+
+</div>

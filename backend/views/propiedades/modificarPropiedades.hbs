@@ -1,0 +1,78 @@
+<div class="contenedor seccion">
+  <h1 class="text-center text-uppercase">Modificando propiedades</h1>
+  <a href="/propiedades/propiedadesPage" class="boton boton-verde">Volver</a>
+  <form
+    class="formulario"
+    action="/propiedades/propiedadesPage/modificarPropiedades"
+    method="post"
+  >
+
+    <fieldset>
+      <input type="hidden" value="{{propiedades.Id}}" name="id" />
+
+      <legend>Informacion General</legend>
+      <label for="titulo">Titulo :</label>
+      <input
+        type="text"
+        id="titulo"
+        name="titulo"
+        value="{{propiedades.titulo}}"
+      />
+
+      <label for="titulo">Subtitulo :</label>
+      <input
+        type="text"
+        id="subtitulo"
+        name="subtitulo"
+        value="{{propiedades.subtitulo}}"
+      />
+
+      <label for="precio">Precio :</label>
+      <input
+        type="number"
+        id="precio"
+        name="precio"
+        value="{{propiedades.precio}}"
+      />
+
+      <label for="imagen">Imagen :</label>
+      <input
+        type="file"
+        id="imagen"
+        name="imagen"
+        accept="image/jpeg, image/png, image/jpg"
+        value="{{propiedades.imagen}}"
+      />
+
+      <label for="descripcion">Descripcion :</label>
+      <textarea
+        type="textarea"
+        id="descripcion"
+        name="descripcion"
+        placeholder="Descripcion narrativa"
+      >{{propiedades.descripcion}}
+      </textarea>
+
+    </fieldset>
+    <fieldset>
+      <legend>Vendedor</legend>
+      <select>
+        <option>Jorge</option>
+        <option>Sandra</option>
+      </select>
+    </fieldset>
+    <input
+      type="submit"
+      value="Modificar Propiedad"
+      class="boton boton-verde w-auto"
+    />
+
+  </form>
+  {{#if error}}
+    <p class="alert alert-danger text-center" role="alert">
+
+      {{message}}
+    </p>
+  {{/if}}
+
+</div>

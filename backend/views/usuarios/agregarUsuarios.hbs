@@ -1,0 +1,42 @@
+<div class="contenedor seccion">
+  <h1 class="text-center text-uppercase">Ingreso de Usuarios</h1>
+  <a href="/usuarios/usuariosPage" class="boton boton-verde">Volver</a>
+  <form
+    class="formulario"
+    action="/usuarios/usuariosPage/agregarUsuarios"
+    method="post"
+  >
+    <fieldset>
+      <legend>Informacion General</legend>
+      <label for="usuario">Nombre de usuario :</label>
+      <input
+        type="text"
+        id="usuario"
+        name="usuario"
+        placeholder="Direccion de e-mail como usuario"
+      />
+      <label for="password">Contraseña :</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Ingrese su contraseña"
+      />
+
+    </fieldset>
+
+    <input
+      type="submit"
+      value="Ingresar Usuario"
+      class="boton boton-verde w-auto"
+    />
+
+  </form>
+  {{#if error}}
+    <p class="alert alert-danger text-center" role="alert">
+
+      {{message}}
+    </p>
+  {{/if}}
+
+</div>

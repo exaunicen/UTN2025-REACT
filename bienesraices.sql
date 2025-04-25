@@ -1,142 +1,199 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.2
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: bienesraices
--- ------------------------------------------------------
--- Server version	8.0.33
+-- Servidor: localhost
+-- Tiempo de generación: 25-04-2025 a las 22:13:45
+-- Versión del servidor: 8.0.33
+-- Versión de PHP: 8.3.15
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `blog`
+-- Base de datos: `bienesraices`
 --
 
-DROP TABLE IF EXISTS `blog`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `blog`
+--
+
 CREATE TABLE `blog` (
-  `blogId` int NOT NULL AUTO_INCREMENT,
+  `blogId` int NOT NULL,
   `titulo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `subtitulo` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `imagen` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `autor` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `creado` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`blogId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `blog_url` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `creado` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `blog`
+-- Volcado de datos para la tabla `blog`
 --
 
-LOCK TABLES `blog` WRITE;
-/*!40000 ALTER TABLE `blog` DISABLE KEYS */;
-INSERT INTO `blog` VALUES (2,'Guia para la decoracion de tu hogar','Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio','','Jorge Albarinio','2025-04-12 00:00:00'),(3,'Casa en la laguna',' 10 tips para decoracion de cabanias en montanias','','Jorge Albarinio','2025-04-14 21:30:31'),(6,'Trabajando en casa con la compu','10 tips para decorar tu rincon labora el casa','','Jorge Albarinio','2025-04-15 14:28:51');
-/*!40000 ALTER TABLE `blog` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `blog` (`blogId`, `titulo`, `subtitulo`, `imagen`, `autor`, `blog_url`, `creado`) VALUES
+(10, 'Terraza en el techo de tu casa', 'Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero', 'xazyfaqeir9rpfpgmyql', 'Jorge Albarinio', 'https://blog.enteratecomo.com.ar', '2025-04-25 15:25:06'),
+(11, '10 Tips para Tu Terraza soñada', 'Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero', 'oy3jlpixobvbhvwdiphv', 'Jorge Albarinio', 'https://blog.enteratecomo.com.ar', '2025-04-25 15:26:28'),
+(12, 'Guia para la decoracion de tu hogar', 'Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio', 'eqllcv1tots5ua8iqga2', 'Jorge Albarinio', 'https://blog.enteratecomo.com.ar', '2025-04-25 15:27:32'),
+(13, '10 Tips para tu Ambiente Soñada', 'Maximiza el espacio en tu hogar con esta guia, aprende a combinar muebles y colores para darle vida a tu espacio', 'x7n29z2kdvqbhjqep4be', 'Jorge Albarinio', 'https://blog.enteratecomo.com.ar', '2025-04-25 15:28:46');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `propiedades`
+-- Estructura de tabla para la tabla `propiedades`
 --
 
-DROP TABLE IF EXISTS `propiedades`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `propiedades` (
-  `Id` int NOT NULL AUTO_INCREMENT,
+  `Id` int NOT NULL,
   `titulo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `subtitulo` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `imagen` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `subtitulo` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `imagen` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `precio` decimal(10,2) NOT NULL,
   `descripcion` longtext COLLATE utf8mb4_general_ci NOT NULL,
   `alta` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `baja` date DEFAULT NULL,
   `disponible` tinyint(1) NOT NULL DEFAULT '1',
-  `vendedorId` int NOT NULL DEFAULT '1',
-  PRIMARY KEY (`Id`),
-  KEY `vendedorId` (`vendedorId`),
-  CONSTRAINT `vendedorId` FOREIGN KEY (`vendedorId`) REFERENCES `vendedores` (`vendedorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `vendedorId` int NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `propiedades`
+-- Volcado de datos para la tabla `propiedades`
 --
 
-LOCK TABLES `propiedades` WRITE;
-/*!40000 ALTER TABLE `propiedades` DISABLE KEYS */;
-INSERT INTO `propiedades` VALUES (2,'Sierra de la ventana','Dar ambiente tipo cabañas rusticas de montaña, 10 tips para tener exito','',8450.00,'Casa con 3 baños, 3 dormitorios, 2 garages, ubicada en el pie de la comarca serrana\r\n      ','2025-04-14 22:52:12',NULL,1,1),(3,'Villa Ventana','Dar ambiente tipo cabañas rusticas de montaña, 10 tips para tener exito','',1250253.00,'Casa con 3 baños, 3 dormitorios, 2 garages, ubicada en el pie de la comarca serrana','2025-04-14 22:55:44',NULL,1,1);
-/*!40000 ALTER TABLE `propiedades` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `propiedades` (`Id`, `titulo`, `subtitulo`, `imagen`, `precio`, `descripcion`, `alta`, `baja`, `disponible`, `vendedorId`) VALUES
+(14, 'Casa de Lujo en el Lago', 'Casa de lujo en el lago con execelente vista, acabados de lujo, 4 habitaciones, 4 baños, 2 plantas, 2 cocheras, 300 m2', 'aauotq0kvxrox3qdcpqo', 300000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra neque vitae augue cursus, non feugiat mauris vestibulum. Suspendisse malesuada mauris accumsan diam venenatis, non dignissim arcu pulvinar. Sed eget quam molestie, posuere elit a, tincidunt nibh. Vestibulum vitae sem tortor. Nam auctor risus ut magna maximus efficitur. In at.', '2025-04-24 21:54:57', NULL, 1, 1),
+(15, 'Mansion con Pileta', 'Mansion con pileta y parque, 5 habitaciones, 5 baños, 3 plantas, 3 cocheras, 500 m2', 'lfyztmdzd6njyj8jui4g', 500000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra neque vitae augue cursus, non feugiat mauris vestibulum. Suspendisse malesuada mauris accumsan diam venenatis, non dignissim arcu pulvinar. Sed eget quam molestie, posuere elit a, tincidunt nibh. Vestibulum vitae sem tortor. Nam auctor risus ut magna maximus efficitur. In at.', '2025-04-24 21:56:48', NULL, 1, 3),
+(16, 'Casa diseño  Moderno', 'Casa de diseño moderno, excelente ubicacion, 3 habitaciones, 2 baños, 2 plantas, 1 cochera, 150m2', 'w3hfwaia3rfmfuvp5bv4', 200000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra neque vitae augue cursus, non feugiat mauris vestibulum. Suspendisse malesuada mauris accumsan diam venenatis, non dignissim arcu pulvinar. Sed eget quam molestie, posuere elit a, tincidunt nibh. Vestibulum vitae sem tortor. Nam auctor risus ut magna maximus efficitur. In at.', '2025-04-24 21:59:28', NULL, 1, 7),
+(17, 'Casa de Ladrillos Vistos', 'Casa de ladrillos vistos,  excelente ubicacion, 4 habitaciones, 3 baños, 2 plantas, 2 cocheras, 250 m2', 'm9dlk5bbwgidrowjpafk', 180000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra neque vitae augue cursus, non feugiat mauris vestibulum. Suspendisse malesuada mauris accumsan diam venenatis, non dignissim arcu pulvinar. Sed eget quam molestie, posuere elit a, tincidunt nibh. Vestibulum vitae sem tortor. Nam auctor risus ut magna maximus efficitur. In at.\r\n      \r\n      \r\n      ', '2025-04-24 22:02:27', NULL, 1, 8),
+(18, 'Clasica en barrio Residencial', 'Combina elegancia y confort en una ubicación privilegiada, 2 baños, 3 habitaciones, 1 cochera doble, 250m2', 'qzewbshxgx9bwrrttfex', 180000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend turpis a dui mattis, vel gravida turpis egestas. Aenean imperdiet luctus malesuada. Integer pellentesque, turpis at lacinia maximus, justo augue lacinia felis, nec scelerisque felis nulla blandit lacus. Aliquam erat volutpat. Nunc porttitor, tortor et venenatis placerat, dolor nibh aliquam.\r\n      \r\n      \r\n      \r\n      \r\n      \r\n      \r\n      ', '2025-04-25 15:02:27', NULL, 1, 1),
+(19, 'Casa a pocos pasos del mar', 'Esta encantadora casa combina comodidad y un ambiente relajado, 2 baños, 2 habitaciones, 1 cochera, 150m2', 'yq1lormxz4czrxhh9yve', 120000.00, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eleifend turpis a dui mattis, vel gravida turpis egestas. Aenean imperdiet luctus malesuada. Integer pellentesque, turpis at lacinia maximus, justo augue lacinia felis, nec scelerisque felis nulla blandit lacus. Aliquam erat volutpat. Nunc porttitor, tortor et venenatis placerat, dolor nibh aliquam.', '2025-04-25 15:21:08', NULL, 1, 3);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `userId` int NOT NULL AUTO_INCREMENT,
+  `userId` int NOT NULL,
   `usuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `creado` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `creado` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'exaunicen@gmail.com','0bb09b765eea498437975aed7d72eb31','2025-04-15 17:21:20'),(2,'sandraeh70@gmail.com','0bb09b765eea498437975aed7d72eb31','2025-04-15 17:21:20'),(3,'admin@supertoledo.com','855b5226f529976417a96830d138f2f7','2025-04-15 17:21:20'),(4,'miagilelt@gmail.com','14cc776d42fd4315ebaa95488e60eb4b','2025-04-15 17:21:20'),(5,'ppaves@supertoledo.com','855b5226f529976417a96830d138f2f7','2025-04-15 17:21:20');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `usuarios` (`userId`, `usuario`, `password`, `creado`) VALUES
+(1, 'exaunicen@gmail.com', '0bb09b765eea498437975aed7d72eb31', '2025-04-15 17:21:20'),
+(2, 'sandraeh70@gmail.com', '0bb09b765eea498437975aed7d72eb31', '2025-04-15 17:21:20'),
+(3, 'admin@supertoledo.com', '855b5226f529976417a96830d138f2f7', '2025-04-15 17:21:20'),
+(4, 'miagilelt@gmail.com', '14cc776d42fd4315ebaa95488e60eb4b', '2025-04-15 17:21:20'),
+(5, 'ppaves@supertoledo.com', 'ed5049f8b5d0df8ae98a4ba848ccde75', '2025-04-15 17:21:20');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `vendedores`
+-- Estructura de tabla para la tabla `vendedores`
 --
 
-DROP TABLE IF EXISTS `vendedores`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendedores` (
-  `vendedorId` int NOT NULL AUTO_INCREMENT,
+  `vendedorId` int NOT NULL,
   `nombre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `apellido` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `cell` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `email` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`vendedorId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `email` varchar(200) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `vendedores`
+-- Volcado de datos para la tabla `vendedores`
 --
 
-LOCK TABLES `vendedores` WRITE;
-/*!40000 ALTER TABLE `vendedores` DISABLE KEYS */;
-INSERT INTO `vendedores` VALUES (1,'Jorge','Albarinio','223-5131672','exaunicen@gmail.com'),(3,'Sandra','Hernandez','223-5131672','sandraeh70@gmail.com'),(7,'Martina Elizabeth','Albarinio','02235131672','exaunicen@gmail.com');
-/*!40000 ALTER TABLE `vendedores` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `vendedores` (`vendedorId`, `nombre`, `apellido`, `cell`, `email`) VALUES
+(1, 'Jorge Ismael', 'Albarinio', '223-5131672', 'exaunicen@gmail.com'),
+(3, 'Sandra Elizabeth', 'Hernandez', '223-5131672', 'sandraeh70@gmail.com'),
+(7, 'Martina Elizabeth', 'Albarinio', '02235131672', 'exaunicen@gmail.com'),
+(8, 'Romina Elizabeth', 'Albarinio', '02235131672', 'romixxi@gmail.com');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`blogId`);
+
+--
+-- Indices de la tabla `propiedades`
+--
+ALTER TABLE `propiedades`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `vendedorId` (`vendedorId`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`userId`);
+
+--
+-- Indices de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  ADD PRIMARY KEY (`vendedorId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `blogId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `propiedades`
+--
+ALTER TABLE `propiedades`
+  MODIFY `Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `userId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `vendedores`
+--
+ALTER TABLE `vendedores`
+  MODIFY `vendedorId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `propiedades`
+--
+ALTER TABLE `propiedades`
+  ADD CONSTRAINT `vendedorId` FOREIGN KEY (`vendedorId`) REFERENCES `vendedores` (`vendedorId`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2025-04-15 17:31:25

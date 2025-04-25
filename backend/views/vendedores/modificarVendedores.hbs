@@ -1,55 +1,72 @@
-<div class="contenedor seccion">
-  <h1 class="text-center text-uppercase">Modificacion de Vendedores</h1>
-  <a href="/vendedores/vendedoresPage" class="boton boton-verde">Volver</a>
-  <form
-    class="formulario"
-    action="/vendedores/vendedoresPage/modificarVendedores"
-    method="post"
-  >
-    <input type="hidden" value="{{vendedores.vendedorId}}" name="id" />
+<div class='contenedor seccion'>
+    <h1 class='text-center text-uppercase'>
+        Modificando Vendedores
+    </h1>
+    <a href='/vendedores/vendedoresPage' class='boton boton-verde'>
+        Volver
+    </a>
+    <form
+        class='formulario'
+        action='/vendedores/vendedoresPage/modificarVendedores'
+        method='post'
+    >
+        <input type='hidden' value='{{vendedores.vendedorId}}' name='id' />
 
-    <fieldset>
-      <legend>Informacion General</legend>
-      <label for="nombre">Nombre :</label>
-      <input
-        type="text"
-        id="nombre"
-        name="nombre"
-        value="{{vendedores.nombre}}"
-      />
-      <label for="apellido">Apellido :</label>
-      <input
-        type="text"
-        id="apellido"
-        name="apellido"
-        value="{{vendedores.apellido}}"
-      />
-
-    </fieldset>
-    <fieldset>
-      <legend>Detalles de vendedores</legend>
-      <label for="cell">Telefono :</label>
-      <input type="text" id="cell" name="cell" value="{{vendedores.cell}}" />
-      <label for="email">Email :</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value="{{vendedores.email}}"
-      />
-    </fieldset>
-    <input
-      type="submit"
-      value="Modificar Vendedor"
-      class="boton boton-verde w-auto"
-    />
-
-  </form>
-  {{#if error}}
-    <p class="alert alert-danger text-center" role="alert">
-
-      {{message}}
-    </p>
-  {{/if}}
-
+        <fieldset>
+            <legend>
+                Informacion General
+            </legend>
+            <label for='nombre'>
+                Nombre :
+            </label>
+            <input
+                type='text'
+                id='nombre'
+                name='nombre'
+                value='{{vendedores.nombre}}'
+            />
+            <label for='apellido'>
+                Apellido :
+            </label>
+            <input
+                type='text'
+                id='apellido'
+                name='apellido'
+                value='{{vendedores.apellido}}'
+            />
+        </fieldset>
+        <fieldset>
+            <legend>
+                Detalles de vendedores
+            </legend>
+            <label for='cell'>
+                Telefono :
+            </label>
+            <input
+                type='text'
+                id='cell'
+                name='cell'
+                value='{{vendedores.cell}}'
+            />
+            <label for='email'>
+                Email :
+            </label>
+            <input
+                type='email'
+                id='email'
+                name='email'
+                value='{{vendedores.email}}'
+            />
+        </fieldset>
+        <input
+            type='submit'
+            value='Modificar Vendedor'
+            class='boton boton-verde w-auto'
+        />
+    </form>
+    {{#if error}}
+        <p class='alert alert-danger text-center' role='alert'>
+            {{message}}
+        </p>
+    {{/if}}
 </div>

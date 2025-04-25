@@ -9,7 +9,9 @@ function Blogs(props) {
     useEffect(() => {
         const cargarBlogs = async () => {
             setLoading(true);
-            const response = await axios.get('http://localhost:3001/api/blog');
+            const response = await axios.get(
+                'http://localhost:3001/api/blogTop2'
+            );
             setBlogs(response.data);
             setLoading(false);
         };

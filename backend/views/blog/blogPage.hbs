@@ -1,6 +1,7 @@
 <div class="container mt-5">
   <div class="row">
-    <p class="text-end fs-3 fw-bold ms-1">Bienvenido
+    <p class="text-end fs-3 fw-bold ms-1">
+      Bienvenido
       {{email}}
       <a
         href="/admin/login/logout"
@@ -13,7 +14,9 @@
   </div>
   <div class="row">
     <div class="col-7">
-      <h3 class="fs-3 text-uppercase fw-bold">Blog Activos</h3>
+      <h3 class="fs-3 text-uppercase fw-bold">
+        Blog Activos
+      </h3>
     </div>
     <div class="col-5 text-end">
       <a
@@ -30,24 +33,56 @@
       <table class="table">
         <thead>
           <tr class="table-dark">
-            <th scope="col">#</th>
-            <th scope="col">Titulo</th>
-            <th scope="col">Subtitulo</th>
-            <th scope="col">Imagen</th>
-            <th scope="col">Autor</th>
-            <th scope="col">Creado</th>
-            <th class="text-end">Acciones</th>
+            <th scope="col">
+              #
+            </th>
+            <th scope="col">
+              Titulo
+            </th>
+            <th scope="col">
+              Subtitulo
+            </th>
+            <th scope="col">
+              Imagen
+            </th>
+            <th scope="col">
+              Autor
+            </th>
+            <th scope="col">
+              Url
+            </th>
+            <th scope="col">
+              Creado
+            </th>
+            <th class="text-end">
+              Acciones
+            </th>
           </tr>
         </thead>
         <tbody>
           {{#each blogs}}
             <tr>
-              <th scope="row">{{blogId}}</th>
-              <td data-titulo="Titulo">{{titulo}}</td>
-              <td data-titulo="Subtitulo">{{subtitulo}}</td>
-              <td data-titulo="Imagen">{{imagen}}</td>
-              <td data-titulo="Autor">{{autor}}</td>
-              <td data-titulo="Creado">{{creado}}</td>
+              <th scope="row">
+                {{blogId}}
+              </th>
+              <td data-titulo="Titulo">
+                {{titulo}}
+              </td>
+              <td data-titulo="Subtitulo">
+                {{subtitulo}}
+              </td>
+              <td data-titulo="Imagen">
+                {{{imagen}}}
+              </td>
+              <td data-titulo="Autor">
+                {{autor}}
+              </td>
+              <td data-titulo="Url">
+                {{blog_url}}
+              </td>
+              <td data-titulo="Creado">
+                {{creado}}
+              </td>
               <td class="text-end">
                 <a
                   href="/blog/blogPage/modificarBlog/{{blogId}}"

@@ -51,12 +51,23 @@ img {
   background-color: var(--color-grisoscuro);
   padding: 2rem 0 1rem;
 }
+.modificacion-imagen {
+  width: 10rem;
+  height: 10rem;
+}
 
 .barra {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 2rem;
+}
+.pie {
+  background-color: var(--color-grisoscuro);
+  color: var(--color-blanco);
+  text-align: center;
+  margin-bottom: 0;
+  padding: 1rem;
 }
 
 .navegacion a {
@@ -69,13 +80,6 @@ img {
 }
 .navegacion a:hover {
   color: var(--color-amarillo);
-}
-.pie {
-  background-color: var(--color-grisoscuro);
-  color: var(--color-blanco);
-  text-align: center;
-  margin-bottom: 0;
-  padding: 1rem 0;
 }
 
 .contenido-pie {
@@ -194,6 +198,10 @@ input[type="submit"] {
   }
   table thead {
     display: none;
+  }
+  table td img {
+    width: auto;
+    height: 10rem;
   }
   table td[data-titulo] {
     display: flex;

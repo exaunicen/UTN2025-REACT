@@ -10,6 +10,14 @@ async function getVendedores() {
     console.log(error);
   }
 }
+async function getVendedoresById(id) {
+  try {
+    const query = "SELECT * FROM vendedores WHERE vendedorId= ?";
+    const rows = await pool.query(query, [id]);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 /* Consulta para INSERT vendedores a la base de datos */
 async function insertVendedores(obj) {

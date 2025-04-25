@@ -1,47 +1,77 @@
 <div class="contenedor seccion">
-  <h1 class="text-center text-uppercase">Modificaciones del Blog</h1>
-  <a href="/blog/blogPage" class="boton boton-verde">Volver</a>
-  <form class="formulario" action="/blog/blogPage/modificarBlog" method="post">
+  <h1 class="text-center text-uppercase">
+    Modificando Blog
+  </h1>
+  <a href="/blog/blogPage" class="boton boton-verde">
+    Volver
+  </a>
+  <form
+    class="formulario"
+    action="/blog/blogPage/modificarBlog"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <fieldset>
-      <legend>Informacion General</legend>
+      <legend>
+        Informacion General
+      </legend>
       <input type="hidden" value="{{blogs.blogId}}" name="id" />
 
-      <label for="titulo">Titulo :</label>
+      <label for="titulo">
+        Titulo :
+      </label>
       <input type="text" id="titulo" name="titulo" value="{{blogs.titulo}}" />
-      <label for="subtitulo">Subtitulo :</label>
+      <label for="subtitulo">
+        Subtitulo :
+      </label>
       <input
         type="text"
         id="subtitulo"
         name="subtitulo"
         value="{{blogs.subtitulo}}"
       />
-      <label for="imagen">Imagen :</label>
-      <input
-        type="file"
-        id="imagen"
-        name="imagen"
-        accept="image/jpeg, image/png, image/jpg"
-        value="{{blogs.imagen}}"
-      />
-
+      <label for="imagen">
+        Imagen :
+      </label>
+      <input type="file" id="imagen" name="imagen" />
+      <div class="modificacion-imagen">
+        {{{blogs.imagen}}}
+      </div>
+      <p class="d-flex">
+        <label>
+          Eliminar imagen actual ?
+        </label>
+        <input type="checkbox" id="img_delete" name="img_delete" value="1" />
+      </p>
+      <input type="hidden" name="img_original" value="{{blogs.imagen}}" />
     </fieldset>
     <fieldset>
-      <legend>Detalles de autor</legend>
-      <label for="autor">Nombre del autor :</label>
+      <legend>
+        Detalles de autor
+      </legend>
+      <label for="autor">
+        Nombre del autor :
+      </label>
       <input type="text" id="autor" name="autor" value="{{blogs.autor}}" />
+      <label for="autor">
+        Url del informe :
+      </label>
+      <input
+        type="text"
+        id="blog_url"
+        name="blog_url"
+        value="{{blogs.blog_url}}"
+      />
     </fieldset>
     <input
       type="submit"
       value="Modoficar Blog"
       class="boton boton-verde w-auto"
     />
-
   </form>
   {{#if error}}
     <p class="alert alert-danger text-center" role="alert">
-
       {{message}}
     </p>
   {{/if}}
-
 </div>

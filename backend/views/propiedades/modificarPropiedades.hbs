@@ -1,10 +1,11 @@
 <div class="contenedor seccion">
-  <h1 class="text-center text-uppercase">Modificando propiedades</h1>
+  <h1 class="text-center text-uppercase">Modificacion de Propiedades</h1>
   <a href="/propiedades/propiedadesPage" class="boton boton-verde">Volver</a>
   <form
     class="formulario"
     action="/propiedades/propiedadesPage/modificarPropiedades"
     method="post"
+    enctype="multipart/form-data"
   >
 
     <fieldset>
@@ -40,9 +41,23 @@
         type="file"
         id="imagen"
         name="imagen"
-        accept="image/jpeg, image/png, image/jpg"
-        value="{{propiedades.imagen}}"
-      />
+      >
+      <div class="modificacion-imagen">
+          {{{propiedades.imagen}}}
+        </div>
+      <p class="d-flex">
+         <label>
+          Eliminar imagen actual ?</label>
+          <input
+        type="checkbox"
+        id="img_delete"
+        name="img_delete"
+        value="1">
+      </p>
+        <input type="hidden" name="img_original" value="{{propiedades.imagen}}">
+
+      
+     
 
       <label for="descripcion">Descripcion :</label>
       <textarea
@@ -52,15 +67,22 @@
         placeholder="Descripcion narrativa"
       >{{propiedades.descripcion}}
       </textarea>
-
     </fieldset>
+
     <fieldset>
       <legend>Vendedor</legend>
-      <select>
-        <option>Jorge</option>
-        <option>Sandra</option>
+      <select name="value">
+        {{#each vendedor}}
+          {{#if (equals vendedorId ../propiedades.vendedorId)}}
+            <option value="{{vendedorId}}" selected="true">{{nombre}}
+              {{apellido}}</option>
+          {{else}}
+            <option value="{{vendedorId}}">{{nombre}} {{apellido}}</option>
+          {{/if}}
+        {{/each}}
       </select>
     </fieldset>
+
     <input
       type="submit"
       value="Modificar Propiedad"

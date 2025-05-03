@@ -7,7 +7,7 @@ const BlogPage = (props) => {
         <>
             <HeaderPage />
             <main class="contenedor seccion contenido-centrado">
-                <h1>Nuestro Blog</h1>
+                <h1 className=" text-uppercase">Nuestro Blog</h1>
                 <Blogs />
             </main>
             <Footer />

@@ -14,7 +14,10 @@ function Card(props) {
                 <p className="card-text text-center">{props.subtitle}</p>
             </div>
             <p className=" text-center text-success">U$A {props.precio}</p>
-            <Link to="/anuncios" className="boton boton-amarillo mb-4">
+            <Link
+                key={props.id}
+                to={`/anuncio/${props.id}`}
+                className="boton boton-amarillo mb-4">
                 Ver Propiedad
             </Link>
         </div>

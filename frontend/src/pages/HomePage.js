@@ -55,8 +55,8 @@ const HomePage = () => {
                             atento. Me ayudaron a encontrar la casa perfecta
                             para mi familia y supieron ver mis necesidades.
                             ¡Gracias!
+                            <p>- Jorge Albariño</p>
                         </blockquote>
-                        <p>- Jorge Albariño</p>
                     </div>
                 </section>
             </div>

@@ -46,10 +46,10 @@
     line-height: 1.4;
 }
 .testimoniales {
-    width: 40%;
+    width: 50%;
 }
 .testimonial {
-    height: 80%;
+    height: auto;
     background-color: var(--color-verde);
     font-size: 2.4rem;
     padding: 3rem;
@@ -61,14 +61,24 @@
 }
 
 /* Medias Queries */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .seccion-inferior {
         flex-direction: column;
     }
     .testimoniales {
         width: 100%;
+        margin-bottom: 1rem;
     }
 }
+@media (max-width: 768px) {
+    .testimoniales {
+        margin-bottom: 1rem;
+    }
+    .blogui {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 480px) {
     .entrada-blog {
         flex-direction: column;

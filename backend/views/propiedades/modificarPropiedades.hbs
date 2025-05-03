@@ -45,19 +45,16 @@
       <div class="modificacion-imagen">
           {{{propiedades.imagen}}}
         </div>
+
       <p class="d-flex">
-         <label>
-          Eliminar imagen actual ?</label>
+         <label for="img_delete" class="text-center">Eliminar imagen actual ?</label>
           <input
         type="checkbox"
         id="img_delete"
         name="img_delete"
         value="1">
       </p>
-        <input type="hidden" name="img_original" value="{{propiedades.imagen}}">
-
-      
-     
+        <input type="hidden" id="img_original" name="img_original" value="{{propiedades.imagen}}">
 
       <label for="descripcion">Descripcion :</label>
       <textarea

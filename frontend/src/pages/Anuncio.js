@@ -1,17 +1,17 @@
 import HeaderPage from '../components/layout/HeaderPage';
-import CardPage from '../components/layout/CardPage';
+import CardAnuncio from '../components/layout/CardAnuncio';
 import Footer from '../components/layout/Footer';
 
-const AnunciosPage = (props) => {
+const Anuncio = (props) => {
     return (
         <>
             <HeaderPage />
             <div className="contenedor">
                 <h1 className=" text-uppercase">Propiedades Destacadas</h1>
-                <CardPage />
+                <CardAnuncio />
             </div>
             <Footer />
         </>
     );
 };
-export default AnunciosPage;
+export default Anuncio;

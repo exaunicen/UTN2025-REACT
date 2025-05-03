@@ -10,6 +10,7 @@ const destroy = util.promisify(cloudinary.uploader.destroy);
 /* GET Listados de propiedades. */
 router.get('/', async function (req, res, next) {
     const propiedades = await propiedadesModel.getPropiedadesFull();
+    console.log(propiedades);
 
     propiedades.forEach((propiedad) => {
         if (propiedad.imagen) {
@@ -105,16 +106,20 @@ router.get('/eliminarPropiedades/:id', async (req, res, next) => {
 router.get('/modificarPropiedades/:id', async (req, res, next) => {
     const id = req.params.id;
     const propiedades = await propiedadesModel.getPropiedadesById(id);
-    if (propiedades.imagen) {
+    console.log(propiedades.imagen);
+
+    if (propiedades.imagen != null) {
         const img = cloudinary.image(propiedades.imagen, {
             width: 100,
             height: 100,
             crop: 'fill',
         });
         propiedades.imagen = img;
+        console.log(propiedades.imagen);
     } else {
         propiedades.imagen = 'imagen no disponible';
     }
+
     const vendedor = await vendedoresModel.getVendedores();
     res.render('propiedades/modificarPropiedades', {
         layout: 'layout',
@@ -127,32 +132,40 @@ router.get('/modificarPropiedades/:id', async (req, res, next) => {
 /* POST Modificando las Propiedades */
 router.post('/modificarPropiedades', async (req, res, next) => {
     try {
-        let img_id = req.body.img_original;
+        const getPublicId = (imageURL) => {
+            const regex = /\/upload\/(?:[^/]+\/)?([^/?]+)(?:\?|$)/;
+            const match = imageURL.match(regex);
+            return match ? match[1] : null;
+        };
+
+        let imageUrl = getPublicId(req.body.img_original);
+        console.log(imageUrl);
         let borrar_img_vieja = false;
+
         if (req.body.img_delete === '1') {
-            img_id = null;
+            imageUrl = null;
             borrar_img_vieja = true;
-        } else {
-            if (req.files && Object.keys(req.files).length > 0) {
-                imagen = req.files.imagen;
-                img_id = (await uploader(imagen.tempFilePath)).public_id;
-                borrar_img_vieja = true;
-            }
         }
+
+        if (req.files && Object.keys(req.files).length > 0) {
+            imagen = req.files.imagen;
+            imageUrl = (await uploader(imagen.tempFilePath)).public_id;
+            borrar_img_vieja = true;
+        }
+
         if (borrar_img_vieja && req.body.img_original) {
             await destroy(req.body.img_original);
         }
-
         const obj = {
             titulo: req.body.titulo,
             subtitulo: req.body.subtitulo,
-            imagen: img_id,
+            imagen: imageUrl,
             precio: req.body.precio,
             descripcion: req.body.descripcion,
-            baja: req.body.baja,
             vendedorId: req.body.value,
         };
         const id = req.body.id;
+        console.log(obj);
         await propiedadesModel.updatePropiedades(obj, id);
         res.redirect('/propiedades/propiedadesPage');
     } catch (error) {

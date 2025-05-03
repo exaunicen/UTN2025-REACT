@@ -18,6 +18,11 @@ function Blog(props) {
                     Autor: <span>{props.autor}</span>
                 </p>
                 <p>{props.description}</p>
+                <Link to={props.url} target="_blank">
+                    <button className="boton boton-verde border-0">
+                        Leer Más...
+                    </button>
+                </Link>
             </div>
         </>
     );

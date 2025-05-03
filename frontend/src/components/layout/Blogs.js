@@ -24,7 +24,7 @@ function Blogs(props) {
                 ) : (
                     blogs.map((item) => (
                         <div
-                            className="d-flex justify-content-between align-items-center"
+                            className="d-flex justify-content-between align-items-center blogui"
                             key={item.blogId}>
                             <Blog
                                 title={item.titulo}
@@ -32,6 +32,7 @@ function Blogs(props) {
                                 fecha={item.creado}
                                 autor={item.autor}
                                 description={item.subtitulo}
+                                url={item.blog_url}
                             />
                         </div>
                     ))

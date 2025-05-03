@@ -24,12 +24,13 @@ function Cards(props) {
                 <p>Cargando...</p>
             ) : (
                 cards.map((item) => (
-                    <div className="col-md-4" key={item.id}>
+                    <div className="col-md-4" key={item.Id}>
                         <Card
                             title={item.titulo}
                             subtitle={item.subtitulo}
                             imagen={item.imagen}
                             precio={item.precio}
+                            id={item.Id}
                         />
                     </div>
                 ))

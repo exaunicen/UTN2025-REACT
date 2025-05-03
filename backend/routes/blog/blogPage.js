@@ -117,25 +117,34 @@ router.get('/modificarBlog/:id', async (req, res, next) => {
 /* POST Modificando el Blog */
 router.post('/modificarBlog', async (req, res, next) => {
     try {
-        let img_id = req.body.img_original;
+        const getPublicId = (imageURL) => {
+            const regex = /\/upload\/(?:[^/]+\/)?([^/?]+)(?:\?|$)/;
+            const match = imageURL.match(regex);
+            return match ? match[1] : null;
+        };
+
+        let imageUrl = getPublicId(req.body.img_original);
+        console.log(imageUrl);
+
         let borrar_img_vieja = false;
         if (req.body.img_delete === '1') {
-            img_id = null;
+            imageUrl = null;
             borrar_img_vieja = true;
-        } else {
-            if (req.files && Object.keys(req.files).length > 0) {
-                imagen = req.files.imagen;
-                img_id = (await uploader(imagen.tempFilePath)).public_id;
-                borrar_img_vieja = true;
-            }
         }
+
+        if (req.files && Object.keys(req.files).length > 0) {
+            imagen = req.files.imagen;
+            imageUrl = (await uploader(imagen.tempFilePath)).public_id;
+            borrar_img_vieja = true;
+        }
+
         if (borrar_img_vieja && req.body.img_original) {
             await destroy(req.body.img_original);
         }
         const obj = {
             titulo: req.body.titulo,
             subtitulo: req.body.subtitulo,
-            imagen: img_id,
+            imagen: imageUrl,
             autor: req.body.autor,
             blog_url: req.body.blog_url,
         };
